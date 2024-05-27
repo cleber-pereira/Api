@@ -1,4 +1,3 @@
-const { buscarCurtida } = require('../controllers/CurtidaController');
 const db = require('../db');
 
 module.exports = {

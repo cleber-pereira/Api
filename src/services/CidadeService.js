@@ -1,4 +1,3 @@
-const { buscarCidade } = require('../controllers/CidadeController');
 const db = require('../db');
 
 module.exports = {

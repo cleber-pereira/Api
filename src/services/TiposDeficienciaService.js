@@ -1,4 +1,3 @@
-const { buscarTipoDeficiencia } = require('../controllers/TiposDeficienciaController');
 const db = require('../db');
 
 module.exports = {
