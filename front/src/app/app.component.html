@@ -13,12 +13,13 @@
       <h2>Usuários que você pode gostar</h2>
       <div class="row mt-5" id="filter-buttons">
         <div class="col-12">
-          <button class="btn mb-2 me-1 active" data-filter="all">Show all</button>
+          <button class="btn mb-2 me-1 active" data-filter="all" [routerLink]="['/login']">Show all</button>
           <button class="btn mb-2 mx-1" data-filter="nature">Nature</button>
           <button class="btn mb-2 mx-1" data-filter="cars">Cars</button>
           <button class="btn mb-2 mx-1" data-filter="people">People</button>
         </div>
       </div>
+      <router-outlet></router-outlet>
       <div class="row px-2 mt-4 gap-3" id="filterable-cards">
         <div *ngFor="let c of usuarios" class="card p-0">
           <img class="img-perfil" src="http://localhost/dating/_painel/imagens/{{c.FOTO_PERFIL}}" alt="img">

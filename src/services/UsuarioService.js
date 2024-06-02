@@ -34,13 +34,13 @@ module.exports = {
         }
         return new Promise((aceito, rejeitado)=> {
             console.clear();
-            console.log('SELECT *,cidades.NOME AS NM_CIDADE FROM cidades, usuarios WHERE usuarios.ID != \'' + PROPRIO_ID + '\' AND usuarios.PROCURANDO = \'' + PROCURANDO + '\' AND usuarios.GENERO = \'' + PELO_SEXO + '\' ' + QRY_PES + QRY_ONDE + ' AND cidades.ID=usuarios.CIDADE');
+            // console.log('SELECT *,cidades.NOME AS NM_CIDADE FROM cidades, usuarios WHERE usuarios.ID != \'' + PROPRIO_ID + '\' AND usuarios.PROCURANDO = \'' + PROCURANDO + '\' AND usuarios.GENERO = \'' + PELO_SEXO + '\' ' + QRY_PES + QRY_ONDE + ' AND cidades.ID=usuarios.CIDADE');
             db.query('SELECT *,cidades.NOME AS NM_CIDADE FROM cidades, usuarios WHERE usuarios.ID != \'' + PROPRIO_ID + '\' AND usuarios.PROCURANDO = \'' + PROCURANDO + '\' AND usuarios.GENERO = \'' + PELO_SEXO + '\' ' + QRY_PES + QRY_ONDE + ' AND cidades.ID=usuarios.CIDADE',  (error, results)=>{
                 if (error) {
                     rejeitado(error);
                     return;
                 }
-                console.log('buscarUsuariosPrefer');
+                // console.log('buscarUsuariosPrefer');
                 
                 if (results.length > 0) {
                     aceito(results);

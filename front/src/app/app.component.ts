@@ -14,7 +14,6 @@ export class AppComponent implements OnInit {
     this.usuarios = this.usuariosService.getUsuarios()
     .subscribe((u: any) => {
       this.usuarios = u['result'];
-      console.log(this.usuarios);
     });
   }
   constructor(private usuariosService:UsuarioService){}
