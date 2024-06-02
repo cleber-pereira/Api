@@ -8,26 +8,10 @@ module.exports = {
                     rejeitado(error);
                     return;
                 }
-                console.log('buscarTodos: ', results);
+                console.log('buscarTodos');
                 aceito(results);
             });
         });
-    },
-
-    buscarUsuario: (ID) => {
-        return new Promise((aceito, rejeitado)=> {
-            db.query('SELECT * FROM usuarios WHERE ID = ?', [ID], (error, results)=>{
-                if (error) {
-                    rejeitado(error);
-                    return;
-                }
-                if (results.length > 0) {
-                    aceito(results[0]);
-                } else {
-                    aceito(false);
-                }
-            });
-        })
     },
 
     buscarUsuariosPrefer: (PROPRIO_ID, PROCURANDO, PELO_SEXO, COM_PESSOAS, ONDE, UF, CIDADE) => {
@@ -49,15 +33,33 @@ module.exports = {
             QRY_ONDE = ' AND usuarios.CIDADE = \''+CIDADE+'\' ';
         }
         return new Promise((aceito, rejeitado)=> {
+            console.clear();
+            console.log('SELECT *,cidades.NOME AS NM_CIDADE FROM cidades, usuarios WHERE usuarios.ID != \'' + PROPRIO_ID + '\' AND usuarios.PROCURANDO = \'' + PROCURANDO + '\' AND usuarios.GENERO = \'' + PELO_SEXO + '\' ' + QRY_PES + QRY_ONDE + ' AND cidades.ID=usuarios.CIDADE');
             db.query('SELECT *,cidades.NOME AS NM_CIDADE FROM cidades, usuarios WHERE usuarios.ID != \'' + PROPRIO_ID + '\' AND usuarios.PROCURANDO = \'' + PROCURANDO + '\' AND usuarios.GENERO = \'' + PELO_SEXO + '\' ' + QRY_PES + QRY_ONDE + ' AND cidades.ID=usuarios.CIDADE',  (error, results)=>{
                 if (error) {
                     rejeitado(error);
                     return;
                 }
-                console.log('buscarUsuariosPrefer: ', results);
+                console.log('buscarUsuariosPrefer');
                 
                 if (results.length > 0) {
                     aceito(results);
+                } else {
+                    aceito(false);
+                }
+            });
+        })
+    },
+
+    buscarUsuario: (ID) => {
+        return new Promise((aceito, rejeitado)=> {
+            db.query('SELECT * FROM usuarios WHERE ID = ?', [ID], (error, results)=>{
+                if (error) {
+                    rejeitado(error);
+                    return;
+                }
+                if (results.length > 0) {
+                    aceito(results[0]);
                 } else {
                     aceito(false);
                 }

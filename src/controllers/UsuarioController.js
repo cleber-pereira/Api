@@ -43,7 +43,7 @@ module.exports = {
     },
 
     buscarUsuariosPrefer: async(req, res)=> {
-        let json = {error:'', result:{}};
+        let json = {error:'', result:[]};
         let PROPRIO_ID = req.params.PROPRIO_ID;
         let PROCURANDO = req.params.PROCURANDO;
         let PELO_SEXO = req.params.PELO_SEXO;
@@ -54,7 +54,6 @@ module.exports = {
         let usuarios = await UsuarioService.buscarUsuariosPrefer(PROPRIO_ID, PROCURANDO, PELO_SEXO, COM_PESSOAS, ONDE, UF, CIDADE);
 
         for (let i in usuarios) {
-            console.log('i: '+i)
             let d = usuarios[i].DATA_NASC.getDate();
             let m = usuarios[i].DATA_NASC.getMonth()+1;
             let a = usuarios[i].DATA_NASC.getFullYear();
