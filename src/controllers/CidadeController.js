@@ -9,16 +9,17 @@ module.exports = {
         for (let i in cidades) {
             json.result.push({
                 ID: cidades[i].ID,
-                NOME: cidades[i].NOME
+                NOME: cidades[i].NOME,
+                UF: cidades[i].UF
             });
         }
         res.json(json);
     },
 
-    buscarCidade: async(req, res)=> {
+    buscarCidadePorUf: async(req, res)=> {
         let json = {error:'', result:{}};
-        let ID = req.params.ID;
-        let cidade = await CidadeService.buscarCidade(ID);
+        let UF = req.params.UF;
+        let cidade = await CidadeService.buscarCidadePorUf(UF);
 
         if(cidade){
             json.result = cidade;

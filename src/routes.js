@@ -8,7 +8,7 @@ const TiposDeficienciaController = require('./controllers/TiposDeficienciaContro
 const CurtidaController = require('./controllers/CurtidaController');
 
 router.get('/cidades', CidadeController.buscarTodos);
-router.get('/cidade/:ID', CidadeController.buscarCidade);
+router.get('/cidadesUf/:UF', CidadeController.buscarCidadePorUf);
 
 router.get('/curtidas/:USUARIO', CurtidaController.buscarTodos);
 router.get('/countCurtidas/:USUARIO', CurtidaController.buscarCurtida);
@@ -20,6 +20,7 @@ router.get('/tiposDeficiencia', TiposDeficienciaController.buscarTodos);
 router.get('/tipoDeficiencia/:ID', TiposDeficienciaController.buscarTiposDeficiencia);
 
 router.get('/usuarios', UsuarioController.buscarTodos);
+router.get('/usuarios/:PROPRIO_ID/:PROCURANDO/:PELO_SEXO/:COM_PESSOAS/:ONDE/:UF/:CIDADE', UsuarioController.buscarUsuariosPrefer);
 router.get('/usuario/:ID', UsuarioController.buscarUsuario);
 
 module.exports = router;

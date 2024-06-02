@@ -3,7 +3,7 @@ const db = require('../db');
 module.exports = {
     buscarTodos: ()=> {
         return new Promise((aceito, rejeitado)=>{
-            db.query('SELECT * FROM cidades', (error, results)=>{
+            db.query('SELECT * FROM cidades ORDER BY UF,NOME', (error, results)=>{
                 if (error) {
                     rejeitado(error);
                     return;
@@ -13,18 +13,14 @@ module.exports = {
         });
     },
 
-    buscarCidade: (ID) => {
+    buscarCidadePorUf: (UF) => {
         return new Promise((aceito, rejeitado)=> {
-            db.query('SELECT * FROM cidades WHERE ID = ?', [ID], (error, results)=>{
+            db.query('SELECT ID, NOME, UF FROM cidades WHERE UF = \'' + UF + '\' ORDER BY UF', (error, results)=>{
                 if (error) {
                     rejeitado(error);
                     return;
                 }
-                if (results.length > 0) {
-                    aceito(results[0]);
-                } else {
-                    aceito(false);
-                }
+                aceito(results);
             });
         })
     }
