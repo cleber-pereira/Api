@@ -4,7 +4,15 @@ module.exports = {
     buscarTodos: async(req, res)=> {
         let json = {error:'', result:[]};
 
-        let usuarios = await DatingService.buscarTodos();
+        let ID = req.params.ID;
+        let PROCURANDO = req.params.ID;
+        let PELO_SEXO = req.params.PELO_SEXO;
+        let COM_PESSOAS = req.params.COM_PESSOAS;
+        let ONDE = req.params.ONDE;
+        let CIDADE = req.params.CIDADE;
+        let UF = req.params.UF;
+        
+        let usuarios = await UsuarioService.buscarTodos(ID,PROCURANDO,PELO_SEXO,COM_PESSOAS,ONDE,CIDADE,UF);
 
         for (let i in usuarios) {
             json.result.push({
