@@ -11,13 +11,18 @@ module.exports = {
         let ONDE = req.params.ONDE;
         let CIDADE = req.params.CIDADE;
         let UF = req.params.UF;
-        
+
         let usuarios = await UsuarioService.buscarTodos(ID,PROCURANDO,PELO_SEXO,COM_PESSOAS,ONDE,CIDADE,UF);
 
         for (let i in usuarios) {
             json.result.push({
                 ID: usuarios[i].ID,
                 NOME: usuarios[i].NOME,
+                CIDADE: usuarios[i].CIDADE,
+                PROCURANDO: usuarios[i].PROCURANDO,
+                GENERO: usuarios[i].GENERO,
+                CID_NM: usuarios[i].CID_NM,
+                UF: usuarios[i].UF,
                 EMAIL: usuarios[i].EMAIL,
             });
         }

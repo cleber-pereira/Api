@@ -21,9 +21,22 @@ module.exports = {
             }
         }
         return new Promise((aceito, rejeitado)=>{
-            console.log('SELECT *,cidades.NOME FROM usuarios,cidades WHERE usuarios.CIDADE=cidades.ID AND usuarios.ID != \'' + ID + '\' AND usuarios.PROCURANDO=\'' + PROCURANDO + '\' AND usuarios.GENERO=\'' + PELO_SEXO + '\' ' + QRY_PESS + QRY_ONDE);
+            QUERY = 'SELECT usuarios.ID AS ID';
+            QUERY = QUERY + ',usuarios.NOME AS NOME';
+            QUERY = QUERY + ',usuarios.CIDADE AS CIDADE';
+            QUERY = QUERY + ',usuarios.PROCURANDO AS PROCURANDO';
+            QUERY = QUERY + ',usuarios.GENERO AS GENERO';
+            QUERY = QUERY + ',usuarios.UF AS UF';
+            QUERY = QUERY + ',cidades.NOME AS CID_NM';
+            QUERY = QUERY + ' FROM usuarios,cidades';
+            QUERY = QUERY + ' WHERE usuarios.CIDADE=cidades.ID';
+            QUERY = QUERY + ' AND usuarios.ID!=\'' + ID + '\'';
+            QUERY = QUERY + ' AND usuarios.PROCURANDO=\'' + PROCURANDO + '\'';
+            QUERY = QUERY + ' AND usuarios.GENERO=\'' + PELO_SEXO + '\'';
+            QUERY = QUERY + QRY_PESS + QRY_ONDE;
 
-            db.query('SELECT *,cidades.NOME FROM usuarios,cidades WHERE usuarios.CIDADE=cidades.ID AND usuarios.ID != \'' + ID + '\' AND usuarios.PROCURANDO=\'' + PROCURANDO + '\' AND usuarios.GENERO=\'' + PELO_SEXO + '\' ' + QRY_PESS + QRY_ONDE, (error, results)=>{
+                console.log(QUERY);
+            db.query(QUERY, (error, results)=>{
                 if (error) {
                     rejeitado(error);
                     return;
