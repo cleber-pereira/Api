@@ -1,7 +1,8 @@
 const db = require('../db');
 
 module.exports = {
-    buscarTodos: (ID,PROCURANDO,PELO_SEXO,COM_PESSOAS,ONDE,CIDADE,UF)=> {
+    buscarTodos: (ID,PROCURANDO,PELO_SEXO,COM_PESSOAS,ONDE,CIDADE,UF)=> 
+    {
         QRY_PESS = '';
         if (COM_PESSOAS != '3') {
             if (COM_PESSOAS == '1') { 
@@ -35,7 +36,7 @@ module.exports = {
             QUERY = QUERY + ' AND usuarios.GENERO=\'' + PELO_SEXO + '\'';
             QUERY = QUERY + QRY_PESS + QRY_ONDE;
 
-                console.log(QUERY);
+            // console.log(QUERY);
             db.query(QUERY, (error, results)=>{
                 if (error) {
                     rejeitado(error);
