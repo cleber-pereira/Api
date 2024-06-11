@@ -17,11 +17,15 @@ module.exports = {
 
     buscarDeficiencia: async(req, res)=> {
         let json = {error:'', result:{}};
-        let ID = req.params.ID;
-        let deficiencia = await DeficienciaService.buscarDeficiencia(ID);
+        let TIPO = req.params.TIPO;
+        let deficiencias = await DeficienciaService.buscarDeficiencia(TIPO);
 
-        if(deficiencia){
-            json.result = deficiencia;
+        for (let i in deficiencias) {
+            json.result.push({
+                ID: deficiencias[i].ID,
+                NOME: deficiencias[i].TIPO,
+                NOME: deficiencias[i].NOME
+            });
         }
         res.json(json);
     }

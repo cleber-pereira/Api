@@ -13,15 +13,15 @@ module.exports = {
         });
     },
 
-    buscarDeficiencia: (ID) => {
+    buscarDeficiencia: (TIPO) => {
         return new Promise((aceito, rejeitado)=> {
-            db.query('SELECT * FROM deficiencias WHERE ID = ?', [ID], (error, results)=>{
+            db.query('SELECT * FROM deficiencias WHERE TIPO = ?', [TIPO], (error, results)=>{
                 if (error) {
                     rejeitado(error);
                     return;
                 }
                 if (results.length > 0) {
-                    aceito(results[0]);
+                    aceito(results);
                 } else {
                     aceito(false);
                 }

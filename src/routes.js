@@ -14,7 +14,7 @@ router.get('/curtidas/:USUARIO', CurtidaController.buscarTodos);
 router.get('/countCurtidas/:USUARIO', CurtidaController.buscarCurtida);
 
 router.get('/deficiencias', DeficienciaController.buscarTodos);
-router.get('/deficiencia/:ID', DeficienciaController.buscarDeficiencia);
+router.get('/deficiencia/:TIPO', DeficienciaController.buscarDeficiencia);
 
 router.get('/tiposDeficiencia', TiposDeficienciaController.buscarTodos);
 router.get('/tipoDeficiencia/:ID', TiposDeficienciaController.buscarTiposDeficiencia);
