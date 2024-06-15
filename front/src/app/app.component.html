@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
@@ -19,17 +18,18 @@
           <button class="btn mb-2 mx-1" data-filter="people">People</button>
         </div>
       </div>
-      <router-outlet></router-outlet>
-      <div class="row px-2 mt-4 gap-3" id="filterable-cards">
-        <div *ngFor="let c of usuarios" class="card p-0">
-          <img class="img-perfil" src="http://localhost/dating/_painel/imagens/{{c.FOTO_PERFIL}}" alt="img">
-          <div class="card-body">
-            <h6 class="card-title">{{c.NOME}} <br/> ({{c.IDADE}} anos)</h6>
-            <p class="card-text">{{c.ESTADO_CIVIL}}</p>
-            <p class="card-text">{{c.NM_CIDADE}}/{{c.UF}}</p>
+      <router-outlet>
+        <div class="row px-2 mt-4 gap-3" id="filterable-cards">
+          <div *ngFor="let c of usuarios" class="card p-0">
+            <img class="img-perfil" src="http://localhost/dating/_painel/imagens/{{c.FOTO_PERFIL}}" alt="img">
+            <div class="card-body">
+              <h6 class="card-title">{{c.NOME}} <br/> ({{c.IDADE}} anos)</h6>
+              <p class="card-text">{{c.ESTADO_CIVIL}}</p>
+              <p class="card-text">{{c.NM_CIDADE}}/{{c.UF}}</p>
+            </div>
           </div>
         </div>
-      </div>
+    </router-outlet>
     </div>
   </body>
 </html>

@@ -16,10 +16,10 @@ module.exports = {
         res.json(json);
     },
 
-    buscarCidadePorUf: async(req, res)=> {
+    buscarCidadesPorUf: async(req, res)=> {
         let json = {error:'', result:{}};
         let UF = req.params.UF;
-        let cidade = await CidadeService.buscarCidadePorUf(UF);
+        let cidade = await CidadeService.buscarCidadesPorUf(UF);
 
         if(cidade){
             json.result = cidade;

@@ -9,7 +9,23 @@ module.exports = {
         for (let i in deficiencias) {
             json.result.push({
                 ID: deficiencias[i].ID,
-                NOME: deficiencias[i].NOME
+                NOME: deficiencias[i].NOME,
+                TIPO: deficiencias[i].TIPO
+            });
+        }
+        res.json(json);
+    },
+
+    buscarDeficienciaPorTipo: async(req, res)=> {
+        let json = {error:'', result:[]};
+        let TIPO = req.params.TIPO;
+        let deficiencias = await DeficienciaService.buscarDeficienciaPorTipo(TIPO);
+
+        for (let i in deficiencias) {
+            json.result.push({
+                ID: deficiencias[i].ID,
+                NOME: deficiencias[i].NOME,
+                TIPO: deficiencias[i].TIPO
             });
         }
         res.json(json);

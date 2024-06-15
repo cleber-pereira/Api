@@ -13,6 +13,18 @@ module.exports = {
         });
     },
 
+    buscarDeficienciaPorTipo: (TIPO)=> {
+        return new Promise((aceito, rejeitado)=>{
+            db.query('SELECT * FROM deficiencias WHERE TIPO = ?', [TIPO], (error, results)=>{
+                if (error) {
+                    rejeitado(error);
+                    return;
+                }
+                aceito(results);
+            });
+        });
+    },
+
     buscarDeficiencia: (ID) => {
         return new Promise((aceito, rejeitado)=> {
             db.query('SELECT * FROM deficiencias WHERE ID = ?', [ID], (error, results)=>{

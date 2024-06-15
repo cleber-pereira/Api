@@ -8,13 +8,13 @@ const TiposDeficienciaController = require('./controllers/TiposDeficienciaContro
 const CurtidaController = require('./controllers/CurtidaController');
 
 router.get('/cidades', CidadeController.buscarTodos);
-router.get('/cidadesUf/:UF', CidadeController.buscarCidadePorUf);
+router.get('/cidadesUf/:UF', CidadeController.buscarCidadesPorUf);
 
 router.get('/curtidas/:USUARIO', CurtidaController.buscarTodos);
 router.get('/countCurtidas/:USUARIO', CurtidaController.buscarCurtida);
 
 router.get('/deficiencias', DeficienciaController.buscarTodos);
-router.get('/deficiencia/:ID', DeficienciaController.buscarDeficiencia);
+router.get('/deficiencias/:TIPO', DeficienciaController.buscarDeficienciaPorTipo);
 
 router.get('/tiposDeficiencia', TiposDeficienciaController.buscarTodos);
 router.get('/tipoDeficiencia/:ID', TiposDeficienciaController.buscarTiposDeficiencia);
