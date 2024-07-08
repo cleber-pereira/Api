@@ -24,6 +24,7 @@ module.exports = {
                 CID_NM: usuarios[i].CID_NM,
                 UF: usuarios[i].UF,
                 EMAIL: usuarios[i].EMAIL,
+                FOTO_PERFIL: usuarios[i].FOTO_PERFIL,
             });
         }
         res.json(json);

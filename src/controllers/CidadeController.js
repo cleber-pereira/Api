@@ -9,7 +9,8 @@ module.exports = {
         for (let i in cidades) {
             json.result.push({
                 ID: cidades[i].ID,
-                NOME: cidades[i].NOME
+                NOME: cidades[i].NOME,
+                UF: cidades[i].UF
             });
         }
         res.json(json);

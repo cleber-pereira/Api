@@ -28,6 +28,7 @@ module.exports = {
             QUERY = QUERY + ',usuarios.PROCURANDO AS PROCURANDO';
             QUERY = QUERY + ',usuarios.GENERO AS GENERO';
             QUERY = QUERY + ',usuarios.UF AS UF';
+            QUERY = QUERY + ',usuarios.FOTO_PERFIL AS FOTO_PERFIL';
             QUERY = QUERY + ',cidades.NOME AS CID_NM';
             QUERY = QUERY + ' FROM usuarios,cidades';
             QUERY = QUERY + ' WHERE usuarios.CIDADE=cidades.ID';
