@@ -6,6 +6,7 @@ const UsuarioController = require('./controllers/UsuarioController');
 const DeficienciaController = require('./controllers/DeficienciaController');
 const TiposDeficienciaController = require('./controllers/TiposDeficienciaController');
 const CurtidaController = require('./controllers/CurtidaController');
+const OpcoesController = require('./controllers/OpcoesController');
 
 router.get('/cidades', CidadeController.buscarTodos);
 router.get('/cidade/:ID', CidadeController.buscarCidade);
