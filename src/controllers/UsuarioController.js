@@ -31,7 +31,7 @@ module.exports = {
     },
 
     buscarUsuario: async(req, res)=> {
-        let json = {error:'', result:{}};
+        let json = {error:'', result:[]};
         let ID = req.params.ID;
         let usuario = await UsuarioService.buscarUsuario(ID);
 

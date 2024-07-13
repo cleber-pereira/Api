@@ -19,7 +19,7 @@ module.exports = {
     },
 
     buscarCurtida: async(req, res)=> {
-        let json = {error:'', result:{}};
+        let json = {error:'', result:[]};
         let USUARIO = req.params.USUARIO;
         let curtida = await CurtidaService.buscarCurtida(USUARIO);
 

@@ -16,7 +16,7 @@ module.exports = {
     },
 
     buscarTiposDeficiencia: async(req, res)=> {
-        let json = {error:'', result:{}};
+        let json = {error:'', result:[]};
         let ID = req.params.ID;
         let tipoDeficiencia = await TiposDeficienciaService.buscarTipoDeficiencia(ID);
 
