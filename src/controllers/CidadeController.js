@@ -17,7 +17,7 @@ module.exports = {
     },
 
     buscarCidadesUf: async(req, res)=> {
-        let json = {error:'', result:{}};
+        let json = {error:'', result:[]};
         let UF = req.params.UF;
         let cidades = await CidadeService.buscarCidadesUf(UF);
 
