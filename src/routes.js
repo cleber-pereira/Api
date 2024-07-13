@@ -20,7 +20,7 @@ router.get('/deficiencia/:TIPO', DeficienciaController.buscarDeficiencia);
 router.get('/tiposDeficiencia', TiposDeficienciaController.buscarTodos);
 router.get('/tipoDeficiencia/:ID', TiposDeficienciaController.buscarTiposDeficiencia);
 
-router.get('/usuarios/:ID/:PROCURANDO/:PELO_SEXO/:COM_PESSOAS/:ONDE/:CIDADE/:UF', UsuarioController.buscarTodos);
-router.get('/usuario', UsuarioController.buscarUsuario);
+router.get('/usuariosParam/:ID/:PROCURANDO/:PELO_SEXO/:COM_PESSOAS/:ONDE/:CIDADE/:UF', UsuarioController.buscarTodos);
+router.get('/usuario/:ID', UsuarioController.buscarUsuario);
 
 module.exports = router;
