@@ -20,7 +20,7 @@ module.exports = {
         let TIPO = req.params.TIPO;
         let deficiencias = await DeficienciaService.buscarDeficiencia(TIPO);
         
-        console.log(json);
+        console.log(deficiencias);
 
         for (let j in deficiencias) {
             json.result.push({
