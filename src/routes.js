@@ -9,7 +9,7 @@ const CurtidaController = require('./controllers/CurtidaController');
 const OpcoesController = require('./controllers/OpcoesController');
 
 router.get('/cidades', CidadeController.buscarTodos);
-router.get('/cidade/:ID', CidadeController.buscarCidade);
+router.get('/cidades/:UF', CidadeController.buscarCidadesUf);
 
 router.get('/curtidas/:USUARIO', CurtidaController.buscarTodos);
 router.get('/countCurtidas/:USUARIO', CurtidaController.buscarCurtida);

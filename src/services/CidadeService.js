@@ -13,15 +13,15 @@ module.exports = {
         });
     },
 
-    buscarCidade: (ID) => {
+    buscarCidadesUf: (UF) => {
         return new Promise((aceito, rejeitado)=> {
-            db.query('SELECT * FROM cidades WHERE ID = ?', [ID], (error, results)=>{
+            db.query('SELECT * FROM cidades WHERE UF = ?', [UF], (error, results)=>{
                 if (error) {
                     rejeitado(error);
                     return;
                 }
                 if (results.length > 0) {
-                    aceito(results[0]);
+                    aceito(results);
                 } else {
                     aceito(false);
                 }
