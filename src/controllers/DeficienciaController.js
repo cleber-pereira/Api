@@ -20,11 +20,11 @@ module.exports = {
         let TIPO = req.params.TIPO;
         let deficiencias = await DeficienciaService.buscarDeficiencia(TIPO);
 
-        for (let i in deficiencias) {
+        for (let j in deficiencias) {
             json.result.push({
-                ID: deficiencias[i].ID,
-                TIPO: deficiencias[i].TIPO,
-                NOME: deficiencias[i].NOME
+                ID: deficiencias[j].ID,
+                TIPO: deficiencias[j].TIPO,
+                NOME: deficiencias[j].NOME
             });
         }
         res.json(json);
