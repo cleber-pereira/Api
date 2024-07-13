@@ -19,6 +19,8 @@ module.exports = {
         let json = {error:'', result:{}};
         let TIPO = req.params.TIPO;
         let deficiencias = await DeficienciaService.buscarDeficiencia(TIPO);
+        
+        console.log(json);
 
         for (let j in deficiencias) {
             json.result.push({
