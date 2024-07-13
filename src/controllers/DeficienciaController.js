@@ -23,7 +23,7 @@ module.exports = {
         for (let i in deficiencias) {
             json.result.push({
                 ID: deficiencias[i].ID,
-                NOME: deficiencias[i].TIPO,
+                TIPO: deficiencias[i].TIPO,
                 NOME: deficiencias[i].NOME
             });
         }
