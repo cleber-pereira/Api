@@ -11,5 +11,7 @@ conn.connect((error)=>{
     if (error) throw error;
     console.log(`Conectado ao banco de dados: ${process.env.DB_NAME}`)
 });
-
+setInterval(function () {
+    db.query('SELECT 1');
+}, 5000);
 module.exports = conn;
